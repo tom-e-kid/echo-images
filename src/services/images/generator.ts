@@ -1,5 +1,5 @@
-import chromium from 'chrome-aws-lambda'
 import puppeteer from 'puppeteer'
+import * as process from 'process'
 
 export const Format = {
   JPEG: 'jpeg',
@@ -30,16 +30,11 @@ export const generate = async (input: Input) => {
     label,
   } = input
 
-  const browser = await puppeteer.launch(
-    process.env.NODE_ENV === 'production'
-      ? {
-          args: chromium.args,
-          defaultViewport: { width, height },
-          executablePath: await chromium.executablePath,
-          headless: chromium.headless,
-        }
-      : { defaultViewport: { width, height } }
-  )
+  const browser = await puppeteer.launch({
+    defaultViewport: { width, height },
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+    headless: true,
+  })
 
   const content = label
     ? `<div>
