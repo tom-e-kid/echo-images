@@ -1,0 +1,14 @@
+{
+  "name": "echo.images",
+  "script": "dist/index.js",
+  "env": {
+    "NODE_ENV": "development",
+    "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD": true,
+    "PUPPETEER_EXECUTABLE_PATH": "/usr/bin/chromium-browser"
+  },
+  "env_production": {
+    "NODE_ENV": "production",
+    "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD": true,
+    "PUPPETEER_EXECUTABLE_PATH": "/usr/bin/chromium-browser"
+  }
+}
