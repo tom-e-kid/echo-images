@@ -1,28 +1,7 @@
 import puppeteer from 'puppeteer'
-import * as process from 'process'
+import { GeneratorInput } from './schema'
 
-export const Format = {
-  JPEG: 'jpeg',
-  PNG: 'png',
-} as const
-
-export type Format = typeof Format[keyof typeof Format]
-
-export type Input = {
-  format: Format
-  size: {
-    width: number
-    height: number
-  }
-  colors: {
-    background: string
-    border: string
-    text: string
-  }
-  label?: string
-}
-
-export const generate = async (input: Input) => {
+export const generate = async (input: GeneratorInput) => {
   const {
     format,
     size: { width, height },
