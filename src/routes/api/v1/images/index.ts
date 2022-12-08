@@ -40,8 +40,8 @@ const getSize = (req: ImageRequest) => {
   if (
     !Types.isNumber(width) ||
     !Types.isNumber(height) ||
-    !(width >= 0 && width <= 2048) ||
-    !(height >= 0 && height <= 2048)
+    !(width > 0 && width <= 2048) ||
+    !(height > 0 && height <= 2048)
   ) {
     throw new BadRequest('Invalid size')
   }
