@@ -1,3 +1,5 @@
+import { Types } from './types'
+
 export type RGB = {
   red: number
   green: number
@@ -8,19 +10,26 @@ export const rgbToHex = ({ red, green, blue }: RGB) =>
   '#' + [red, green, blue].map((v) => v.toString(16).padStart(2, '0')).join('')
 
 export const hexToRGB = (hex: string) => {
-  const components = hex
-    .replace(
-      /^#?([a-f\d])([a-f\d])([a-f\d])$/i,
-      (t, r, g, b) => '#' + r + r + g + g + b + b
-    )
-    .substring(1)
-    .match(/.{2}/g)
-    ?.map((v) => parseInt(v, 16))
-  if (components && components.length === 3) {
-    return {
-      red: components[0]!,
-      green: components[1]!,
-      blue: components[2]!,
+  const h = hex.startsWith('#') ? hex.slice(1) : hex
+  if (h.length === 3 || h.length === 6) {
+    const components = h
+      .replace(
+        /^([a-f\d])([a-f\d])([a-f\d])$/i,
+        (t, r, g, b) => r + r + g + g + b + b
+      )
+      .match(/.{2}/g)
+      ?.map((v) => parseInt(v, 16))
+    if (components && components.length === 3) {
+      const red = components[0]!
+      const green = components[1]!
+      const blue = components[2]!
+      if (
+        Types.isNumber(red) &&
+        Types.isNumber(green) &&
+        Types.isNumber(blue)
+      ) {
+        return { red, green, blue }
+      }
     }
   }
   return undefined
