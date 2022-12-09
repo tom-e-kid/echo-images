@@ -7,16 +7,16 @@ Simply call https://echo.kotorie.com/api/v1/images to generate dummy image.
 ### Query parameters
 All parameters are optional.
 
-| param            | default    | note                                             |
-|------------------|------------|--------------------------------------------------|
-| format           | jpeg       | png/jpeg                                         |
-| width            | 512        | 1 ~ 2048                                         |
-| height           | 512        | 1 ~ 2048                                         |
-| background_color | #007aff    | RGB(hex)                                         |
-| border_color     | #bbbbbb    | RGB(hex)                                         |
-| text_color       | (Contrast) | RGB(hex)                                         |
-| label            | n/a        | convert under score to space                     |
-| theme            | legacy     | T.B.D. WANT to be able to select themes of image |
+| param            | default    | note                                               |
+|------------------|------------|----------------------------------------------------|
+| format           | jpeg       | png/jpeg                                           |
+| width            | 512        | 1 ~ 2048                                           |
+| height           | 512        | 1 ~ 2048                                           |
+| background_color | #007aff    | RGB(hex)                                           |
+| border_color     | #bbbbbb    | RGB(hex)                                           |
+| text_color       | (Contrast) | RGB(hex)                                           |
+| label            | n/a        | convert under score to space                       |
+| template         | legacy     | Help! WANT to be able to select templates of image |
 
 ### Example
 

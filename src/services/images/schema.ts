@@ -2,6 +2,11 @@ import { z } from 'zod'
 import { getContrastHex, hexToRGB } from '../../utils/color'
 import { Types } from '../../utils/types'
 
+const formats = ['png', 'jpeg'] as const
+// export type Formats = typeof formats[number]
+const templates = ['legacy'] as const
+export type Templates = typeof templates[number]
+
 const hexSchema = z.string().refine(
   (v) => hexToRGB(v.startsWith('#') ? v : `#${v}`),
   (v) => ({ message: `${v} is unexpected color` })
@@ -20,7 +25,7 @@ const sizeSchema = z
 
 export const querySchema = z
   .object({
-    format: z.enum(['png', 'jpeg']).default('jpeg'),
+    format: z.enum(formats).default(formats[formats.length - 1]),
     width: sizeSchema.default('512'),
     height: sizeSchema.optional(),
     background_color: hexSchema.default('#007aff'),
@@ -30,7 +35,7 @@ export const querySchema = z
       .string()
       .transform((v) => v.split('_').join(' '))
       .optional(),
-    theme: z.enum(['legacy']).default('legacy'),
+    template: z.enum(templates).default(templates[templates.length - 1]),
   })
   .transform((v) => ({
     format: v.format,
@@ -44,7 +49,7 @@ export const querySchema = z
       text: v.text_color ?? getContrastHex(v.background_color),
     },
     label: v.label,
-    theme: v.theme,
+    template: v.template,
   }))
 
 export type GeneratorInput = z.infer<typeof querySchema>
