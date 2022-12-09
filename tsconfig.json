@@ -27,6 +27,7 @@
     "dist",
     "test",
     "public",
-    "tmp"
+    "tmp",
+    "src/**/*.test.ts"
   ]
 }
