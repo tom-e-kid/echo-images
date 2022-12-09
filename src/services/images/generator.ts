@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer'
 import { GeneratorInput } from './schema'
-import { templateBuilder } from './template'
+import { buildTemplate } from './template'
 
 export const generate = async (input: GeneratorInput) => {
   const {
@@ -14,7 +14,7 @@ export const generate = async (input: GeneratorInput) => {
     headless: true,
   })
 
-  const html = await templateBuilder(template, input)
+  const html = await buildTemplate(template, input)
 
   const page = await browser.newPage()
   await page.setContent(html)

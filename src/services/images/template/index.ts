@@ -5,7 +5,7 @@ const templateBuilders = {
   legacy,
 }
 
-export const templateBuilder = (variant: Templates, input: GeneratorInput) => {
+export const buildTemplate = (variant: Templates, input: GeneratorInput) => {
   const builder = templateBuilders[variant] ?? legacy
   return builder(input)
 }

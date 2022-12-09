@@ -1,5 +1,8 @@
 import { GeneratorInput } from '../schema'
 
+// builder MUST return styled html string that  embedded input values.
+// and also you need to include title element with template name in it.
+
 export const builder = async (input: GeneratorInput) => {
   const {
     size: { width, height },
@@ -20,6 +23,7 @@ export const builder = async (input: GeneratorInput) => {
   return `
     <html lang="en">
       <head>
+        <title>legacy</title>
         <style>
         body {
           background-color: ${colors.border};
@@ -47,7 +51,6 @@ export const builder = async (input: GeneratorInput) => {
           font-size: 1.25em;
         }
         </style>
-        <title>image</title>
       </head>
       <body>
         ${content}

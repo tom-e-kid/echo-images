@@ -2,17 +2,20 @@ import { z } from 'zod'
 import { getContrastHex, hexToRGB } from '../../utils/color'
 import { Types } from '../../utils/types'
 
-const formats = ['png', 'jpeg'] as const
+export const formats = ['png', 'jpeg'] as const
 // export type Formats = typeof formats[number]
-const templates = ['legacy'] as const
+export const templates = ['legacy'] as const
 export type Templates = typeof templates[number]
 
-const hexSchema = z.string().refine(
-  (v) => hexToRGB(v.startsWith('#') ? v : `#${v}`),
-  (v) => ({ message: `${v} is unexpected color` })
-)
+export const hexSchema = z
+  .string()
+  .refine(
+    (v) => hexToRGB(v),
+    (v) => ({ message: `${v} is unexpected color` })
+  )
+  .transform((v) => (v.startsWith('#') ? v : '#' + v))
 
-const sizeSchema = z
+export const sizeSchema = z
   .string()
   .refine(
     (v) => {
