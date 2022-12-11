@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { getContrastHex, hexToRGB } from '../../utils/color'
-import { Types } from '../../utils/types'
+import { isNumber } from '../../utils/types'
 
 export const formats = ['png', 'jpeg'] as const
 // export type Formats = typeof formats[number]
@@ -20,7 +20,7 @@ export const sizeSchema = z
   .refine(
     (v) => {
       const n = +v
-      return Types.isNumber(n) && n > 0 && n <= 2048
+      return isNumber(n) && n > 0 && n <= 2048
     },
     (v) => ({ message: `${v} is unexpected size` })
   )

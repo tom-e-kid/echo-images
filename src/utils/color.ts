@@ -1,4 +1,4 @@
-import { Types } from './types'
+import { isNumber } from './types'
 
 export type RGB = {
   red: number
@@ -23,11 +23,7 @@ export const hexToRGB = (hex: string) => {
       const red = components[0]!
       const green = components[1]!
       const blue = components[2]!
-      if (
-        Types.isNumber(red) &&
-        Types.isNumber(green) &&
-        Types.isNumber(blue)
-      ) {
+      if (isNumber(red) && isNumber(green) && isNumber(blue)) {
         return { red, green, blue }
       }
     }
