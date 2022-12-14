@@ -27,7 +27,7 @@ export const generate = async (input: GeneratorInput) => {
   const html = await buildTemplate(template, input)
   await page.setContent(html)
   const snapshot = await page.screenshot(
-    format === 'jpeg' ? { type: 'jpeg', quality: 80 } : undefined
+    format === 'jpeg' ? { type: 'jpeg', quality: 100 } : undefined
   )
   await browser.close()
   return snapshot
