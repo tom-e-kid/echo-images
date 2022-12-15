@@ -10,7 +10,8 @@
     "build": "run-s lint build:*",
     "build:etsc": "etsc",
     "dev": "tsx watch ./src/index.ts",
-    "test": "jest"
+    "test": "jest",
+    "start": "NODE_ENV=production node dist/index.js"
   },
   "author": "tom-e-kid",
   "license": "MIT",
