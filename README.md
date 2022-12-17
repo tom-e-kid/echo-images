@@ -1,4 +1,4 @@
-# Echo.images
+# echo.images
 
 ## How to use it
 
@@ -33,4 +33,7 @@ Pull requests are welcome 🚀
 [MIT License](https://github.com/tom-e-kid/echo-images/blob/main/LICENSE)
 
 ## See also
-[Echo.api](https://github.com/tom-e-kid/echo-api)
+[echo.api: playground](https://echo-api-sigma.vercel.app)  
+[echo.api](https://github.com/tom-e-kid/echo-api)  
+[echo.toolbox](https://github.com/tom-e-kid/echo-toolbox)  
+[echo.ios](https://github.com/tom-e-kid/echo-ios)  
