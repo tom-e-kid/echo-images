@@ -2,7 +2,7 @@
 
 ## How to use it
 
-Simply call https://echo.kotorie.com/api/v1/images to generate dummy image.
+Simply call https://echo.rolan.co.jp/api/v1/images to generate dummy image.
 
 ### Query parameters
 All parameters are optional.
@@ -23,7 +23,7 @@ All parameters are optional.
 Just try to paste it to the browser 👍
 
 ```
-https://echo.kotorie.com/api/v1/images?width=512&height=256&background_color=000&border_color=f00&text_color=ff0&label=Hello_World&format=png
+https://echo.rolan.co.jp/api/v1/images?width=512&height=256&background_color=000&border_color=f00&text_color=ff0&label=Hello_World&format=png
 ```
 
 ## Contributing
